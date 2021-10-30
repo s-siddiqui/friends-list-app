@@ -73,7 +73,7 @@ const FriendList = () => {
         });
         let currentItem = getUpdatedItems(updatedItems);
         setState({...state, items: updatedItems});
-        if(currentItem.length === 0) {
+        if(currentItem.length === 0 && state.currentPage !== 1) {
             const currentPage = state.currentPage - 1;
             setState({...state, items: updatedItems, currentPage: currentPage});
         }
