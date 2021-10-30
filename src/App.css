@@ -1,0 +1,237 @@
+.App {
+  text-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.main-div{
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.child-div{
+  min-height: 10vh;
+  text-align: center;
+  margin-top: 12rem;
+  border: 0.1rem solid #888888
+}
+
+.header-div{
+  text-align: left;
+  padding: 2rem 2rem;
+  font-size: 1.8rem;
+  background-color: #bebebe;
+}
+
+input {
+  /* display: block; */
+  min-width: 40rem;
+  height: 3.4rem;
+  padding: 2rem 1.2rem;
+  font-size: 1.8rem;
+  line-height: 1.42857143;
+  margin-top: 0rem;
+  color: rgb(58, 57, 57);
+  background-color: #fff;
+  background-image: none;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.4rem;
+  -webkit-box-shadow: inset 0 0.1rem 0.1rem rgb(0 0 0 / 8%);
+  box-shadow: inset 0 0.1rem 0.1rem rgb(0 0 0 / 8%);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+input,
+input:focus,
+input:active,
+input:active:focus {
+  border: none;
+  padding: 2.3rem 1.5rem;
+  outline: none;
+}
+input {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+input:focus {
+  -webkit-box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.todo-btn {
+  width: 5rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.fa {
+  margin-left: -2.5rem;
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10;
+  background-color: #fff;
+  background-image: none;
+  color: #666;
+  -webkit-transition: color 0.15s linear;
+  transition: color 0.15s linear;
+  font-size: 2rem;
+}
+.fa:hover {
+  color: rgb(47, 214, 122);
+}
+
+.fa-plus:before {
+  content: "\f067";
+  font-size: 1.5rem;
+}
+
+.showItems {
+  margin-top: 0.4rem;
+  text-align: center;
+}
+
+.eachItem {
+  background: #fff;
+  padding: 1.2rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.15rem;
+  margin-left: 0rem;
+  min-width: 40rem;
+  min-height: 10rem;
+  word-break: break-word;
+  background: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: inherit;
+  border: 0.1rem solid #ccc;
+}
+
+.eachItem:hover {
+  background: rgb(180, 180, 184);
+  color: rgb(255, 255, 255);
+}
+
+.showItems .eachItem h3 {
+  padding-left: 1rem;
+  padding-right: 3rem;
+  font-size: 1.6rem;
+  color: #000000;
+}
+
+.friend-text{
+  color: #a5a5a5;
+  font-size: 1.4rem;
+  padding-left: 1.5rem;
+  padding-top: 2rem;
+  position: absolute;
+}
+
+.eachItem:hover .friend-text{
+  color: #000000;
+}
+
+.fa-trash-alt {
+  /* margin-left: -2.5rem; */
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10;
+  color: rgb(0, 0, 0);
+  -webkit-transition: color 0.15s linear;
+  transition: color 0.15s linear;
+  font-size: 2rem;
+  align-self: center;
+}
+
+.star-filled{
+  color: rgba(0, 0, 0, 1) !important;
+}
+
+.star-empty{
+  color: rgba(0, 0, 0, 0) !important;
+}
+
+.fa-star {
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 12;
+  color: rgb(251, 251, 251, 0);
+  stroke: #000000;
+  stroke-width: 50px;
+  -webkit-transition: color 0.15s linear;
+  transition: color 0.15s linear;
+  font-size: 2rem;
+  margin-left: -2.5rem;
+  align-self: center;
+}
+
+.addItems {
+  color: rgb(47, 214, 122);
+}
+
+.fa-trash-alt:hover {
+  color: rgb(214, 47, 61);
+}
+
+.fa-star path:hover {
+  stroke: rgba(214, 47, 61, 1);
+  stroke-width: 50px;
+}
+
+.eachItem:hover {
+  color: rgb(100, 214, 47);
+}
+
+.eachItem:hover h3 {
+  color: rgb(0, 0, 0);
+}
+
+.btn {
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 45px;
+  max-width: 160px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+}
+.btn:hover {
+  text-decoration: none;
+}
+
+.pages-div{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
+  background-color: #ffffff;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 0.4rem;
+}
+
+.pages-div:hover{
+  background-color: #e7e7e7;
+}
+
+.page-div-clicked {
+  background-color: #bebebe;
+}
+
+.pages-div:hover{
+  cursor: pointer;
+}
