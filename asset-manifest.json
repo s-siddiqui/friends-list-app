@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/FriendsList/static/css/main.2e00fb3d.chunk.css",
+    "main.js": "/FriendsList/static/js/main.ffd14d02.chunk.js",
+    "main.js.map": "/FriendsList/static/js/main.ffd14d02.chunk.js.map",
+    "runtime-main.js": "/FriendsList/static/js/runtime-main.85a3105f.js",
+    "runtime-main.js.map": "/FriendsList/static/js/runtime-main.85a3105f.js.map",
+    "static/css/2.7910ab71.chunk.css": "/FriendsList/static/css/2.7910ab71.chunk.css",
+    "static/js/2.84989c97.chunk.js": "/FriendsList/static/js/2.84989c97.chunk.js",
+    "static/js/2.84989c97.chunk.js.map": "/FriendsList/static/js/2.84989c97.chunk.js.map",
+    "static/js/3.32d830d5.chunk.js": "/FriendsList/static/js/3.32d830d5.chunk.js",
+    "static/js/3.32d830d5.chunk.js.map": "/FriendsList/static/js/3.32d830d5.chunk.js.map",
+    "index.html": "/FriendsList/index.html",
+    "static/css/2.7910ab71.chunk.css.map": "/FriendsList/static/css/2.7910ab71.chunk.css.map",
+    "static/css/main.2e00fb3d.chunk.css.map": "/FriendsList/static/css/main.2e00fb3d.chunk.css.map",
+    "static/js/2.84989c97.chunk.js.LICENSE.txt": "/FriendsList/static/js/2.84989c97.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.min.css": "/FriendsList/static/media/fontawesome-webfont.f691f37e.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.85a3105f.js",
+    "static/css/2.7910ab71.chunk.css",
+    "static/js/2.84989c97.chunk.js",
+    "static/css/main.2e00fb3d.chunk.css",
+    "static/js/main.ffd14d02.chunk.js"
+  ]
+}
