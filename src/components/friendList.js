@@ -1,10 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import '../App.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Pagination from './pagination';
+import InputBox from './InputBox';
+import ListItem from './ListItem';
 
 const FriendList = () => {
 
@@ -12,7 +11,7 @@ const FriendList = () => {
     const [state, setState] = useState({
         inputData: '',
         items: [],
-        currentPage: 1    
+        currentPage: 1
     });
     const [currentItems, setCurrentItems] = useState([]);
     const itemsPerPage = 4;
@@ -31,79 +30,9 @@ const FriendList = () => {
         return currentItem;
     }
 
-    // Input & Search Component
-    const RenderInputComp = <input type="text" value={state.inputData}
-                            onChange={(e) => setState({...state, inputData: e.target.value, currentPage: state.currentPage})}
-                            placeholder="Enter your friend's name"
-                            onKeyPress={(e) => addItem(e)}
-                            maxLength="50" />;
-
-    // Friends List Component
-    const RenderItemComp = state.items.filter((item, index) => {
-                            if (state.inputData === "") {
-                                return ((index >= (state.currentPage * itemsPerPage) - itemsPerPage && index < state.currentPage * itemsPerPage));
-                            } else if (item.friendName.toLowerCase().includes(state.inputData.toLowerCase())) {
-                                return item;
-                            }
-                            }).map((elem, index) => {
-                                return (
-                                    <div className="eachItem" key={index}>
-                                        <h3>{elem.friendName}</h3>
-                                        <div className="todo-btn">
-                                            <FontAwesomeIcon icon={faStar} id={'star' + index} className= {'fa-star' + ' ' + (elem.fav === 0 ? 'star-empty' : 'star-filled')} onClick={() => addRemoveFavourite(index, elem.id)} />
-                                            <FontAwesomeIcon icon={faTrashAlt} className="fa-trash-alt" onClick={() => deleteItem(index, elem.id)} />
-                                        </div>
-                                        <div className="friend-text"><br />is your friend</div>
-                                    </div>
-                                )
-                            })
-
-    // Add a friend to list
-    const addItem = (e) => {
-        if (e.charCode === 13 && state.inputData !== "") {
-            const values = { "id": state.items.length, "friendName": state.inputData, "fav": 0 };
-            setState({...state, items: [...state.items, values], inputData: ''});            
-        }
-    }
-
-    // Delete a Friend from list
-    const deleteItem = (key, elemId) => {
-        const updatedItems = state.items.filter((elem, index) => {
-            return elem.id !== elemId;
-        });
-        let currentItem = getUpdatedItems(updatedItems);
-        setState({...state, items: updatedItems});
-        if(currentItem.length === 0 && state.currentPage !== 1) {
-            const currentPage = state.currentPage - 1;
-            setState({...state, items: updatedItems, currentPage: currentPage});
-        }
-    }
-
-    // Set current Page from Pagination Component
-    const setCurrentPages = (pageNo) => {
-        setState({...state, currentPage: pageNo});
-    }
-
-    // Add a Friend to Favourite
-    const addRemoveFavourite = (key, elemId) => {
-        let itemArr = state.items.slice();
-        for (let i = 0; i < itemArr.length; i++) {
-            let item = itemArr[i];
-            if (item.id === elemId) {
-                if (item.fav === 0) {
-                    item.fav = 1;
-                    itemArr.splice(i, 1);
-                    itemArr.unshift(item);
-                    break;
-                } else {
-                    item.fav = 0;
-                    let spliced = itemArr.splice(i, 1);
-                    itemArr.push(spliced[0]);
-                    break;
-                }
-            }
-        }
-        setState({...state, items: itemArr});
+    // To update the State from other Components
+    const updateState = (updatedStateValue) => {
+        setState(updatedStateValue)
     }
 
     return (
@@ -114,12 +43,12 @@ const FriendList = () => {
                         <h3>Friends List</h3>
                     </div>
                     <div className="addItems">
-                        {RenderInputComp}
+                        <InputBox state={state} updateState={updateState} />
                     </div>
                     <div className="showItems">
-                        {RenderItemComp}
+                        <ListItem state={state} getUpdatedItems={getUpdatedItems} updateState={updateState} itemsPerPage={itemsPerPage} />
                     </div>
-                    <Pagination items={state.items} currentPage={state.currentPage} parentCallback={setCurrentPages} />
+                    <Pagination state={state} currentPage={state.currentPage} updateState={updateState} itemsPerPage={itemsPerPage} currentPage={state.currentPage} />
                 </div>
             </div>
         </>
